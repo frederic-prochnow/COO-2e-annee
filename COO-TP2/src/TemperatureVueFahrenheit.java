@@ -24,5 +24,6 @@ public class TemperatureVueFahrenheit extends TemperatureVue{
 	
 	public void update(Observable s, Object o) {
 		setDisplay(""+model().getF());
+		changement_couleur(getDisplay());
 	}
 }

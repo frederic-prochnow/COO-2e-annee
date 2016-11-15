@@ -9,6 +9,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import javafx.collections.ListChangeListener.Change;
+import sun.awt.DisplayChangedListener;
+
 public abstract class TemperatureVue implements Observer{
 	@SuppressWarnings("unused")
 	private String label;
@@ -44,6 +47,17 @@ public abstract class TemperatureVue implements Observer{
 		display.setText(s);
 	}
 	
+	public void changement_couleur(double temp){
+		if(temp <= 15.0)
+			display.setBackground(Color.cyan);
+		else if(temp >= 40.0)
+			display.setBackground(Color.RED);
+		else if (temp > 15.0 && temp < 40.0)
+			display.setBackground(Color.WHITE);
+		else 
+			display.setBackground(Color.WHITE);
+	}
+	
 	/**
 	 * ACTIVER WARNING
 	 */
@@ -62,9 +76,7 @@ public abstract class TemperatureVue implements Observer{
 		double result = 0.0;
 		try {
 			result = Double.valueOf(display.getText()).doubleValue();
-		} catch (NumberFormatException e) {
-			result = 0.0;
-		}
+		} catch (NumberFormatException e) {}
 		return result;
 	}
 	

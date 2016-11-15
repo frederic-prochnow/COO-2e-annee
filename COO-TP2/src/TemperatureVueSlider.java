@@ -82,8 +82,21 @@ public class TemperatureVueSlider implements Observer{
 		return model;
 	}
 	
+	public void changement_couleur(){
+		int temp = thermometre.getValue();
+		if(temp <= 15.0)
+			thermometre.setBackground(Color.cyan);
+		else if(temp >= 40.0)
+			thermometre.setBackground(Color.RED);
+		else if (temp > 15.0 && temp < 40.0)
+			thermometre.setBackground(Color.WHITE);
+		else 
+			thermometre.setBackground(Color.WHITE);
+	}
+	
 	public void update(Observable o, Object arg) {
 		thermometre.setValue((int) model().getC());
+		changement_couleur();
 	}
 
 

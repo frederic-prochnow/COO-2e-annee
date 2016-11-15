@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Observable;
@@ -24,5 +25,6 @@ public class TemperatureVueCelsuis extends TemperatureVue {
 	
 	public void update(Observable s, Object o) {
 		setDisplay(""+model().getC());
+		changement_couleur(getDisplay());
 	}
 }
