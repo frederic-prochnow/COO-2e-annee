@@ -6,6 +6,7 @@ public class TemperatureMVC {
 		TemperatureController tempcontrolF = new TemperatureController(tempmod);
 		TemperatureVueCelsuis pvc = new TemperatureVueCelsuis(tempmod, tempcontrolC, 100, 200);
 		TemperatureVueFahrenheit tvf = new TemperatureVueFahrenheit(tempmod, tempcontrolF, 100, 350);
+		TemperatureVueSlider tvs = new TemperatureVueSlider("Celsius", tempmod, tempcontrolC, 400, 200);
 		tempcontrolC.addView(pvc);
 		tempcontrolF.addView(tvf);
 	}
